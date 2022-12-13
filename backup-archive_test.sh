@@ -4,8 +4,8 @@
 
 BACKUP_PATH="/home/jonathan/backup_test/dump"
 BACKUP_DATE="$(find "$BACKUP_PATH" -maxdepth 1 -type f -iname 'vzdump*' | awk -F '/' '{print $6}' | cut -d '-' -f 4 | sed 's/_/-/g' | sort | tail -n1)"
-VM_FILES="$(find "$BACKUP_PATH" -maxdepth 1 -type f -iname '*qemu*')"
-LXC_FILES="$(find "$BACKUP_PATH" -maxdepth 1 -type f -iname '*lxc*')"
+VM_FILES="$(find "$BACKUP_PATH" -maxdepth 1 -type f -iname '*qemu*' | sort)"
+LXC_FILES="$(find "$BACKUP_PATH" -maxdepth 1 -type f -iname '*lxc*' | sort)"
 
 
 # This will check if there is a parent directory for the current backups and then create a directory
