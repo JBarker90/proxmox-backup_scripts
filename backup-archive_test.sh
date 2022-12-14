@@ -11,7 +11,7 @@ LXC_FILES="$(find "$BACKUP_PATH" -maxdepth 1 -type f -iname '*lxc*' | sort)"
 # This will check if there is a parent directory for the current backups and then create a directory
 if [[ -e "$BACKUP_PATH/monthly_backups.$BACKUP_DATE" ]]; then
     echo "This directory already exists..."
-    exit 1
+    #exit 1
 else
 
     mkdir $BACKUP_PATH/monthly_backups."$BACKUP_DATE"
@@ -21,10 +21,10 @@ else
 fi
 
 # Checks if VM or LXC backups exist
-if [[ -e "$VM_FILES" ]]; then
-    echo "$VM_FILES"
-elif [[ -e "$LXC_FILES" ]]; then
-    echo "$LXC_FILES"
-else
-    echo "There were no files to backup..."
-fi
+#if [[ -f "$VM_FILES" ]]; then
+#    echo "$VM_FILES"
+#elif [[ -f "$LXC_FILES" ]]; then
+#    echo "$LXC_FILES"
+#else
+#    echo "There were no files to backup..."
+#fi
