@@ -18,5 +18,11 @@ else
     mkdir $BACKUP_PATH/monthly_backups."$BACKUP_DATE"/vm_backups."$BACKUP_DATE"
     mkdir $BACKUP_PATH/monthly_backups."$BACKUP_DATE"/lxc_backups."$BACKUP_DATE"
     
-    
+    if [[ -e "$VM_FILES" ]]; then
+        echo "$VM_FILES"
+    elif [[ -e "$LXC_FILES" ]]; then
+        echo "$LXC_FILES"
+    else
+        echo "There were no files to backup..."
+    fi
 fi
